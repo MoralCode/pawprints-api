@@ -12,12 +12,15 @@ mapper_registry = registry()
 @dataclass
 class RedditPost:
 	__table__ = Table(
-        "reddit_posts",
-        mapper_registry.metadata,
-        Column("post_id", Integer, primary_key=True),
-        Column("contents", Text),
-        Column("date", Date()),
-    )
+		"reddit_posts",
+		mapper_registry.metadata,
+		Column("post_id", Integer, primary_key=True),
+		Column("title", Text),
+		Column("contents", Text),
+		Column("upvotes", Integer),
+	)
 	identifier: int
+	title: str
 	contents: str
+	upvotes: int
 	
