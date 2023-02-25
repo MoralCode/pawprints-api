@@ -10,11 +10,11 @@ mapper_registry = registry()
 
 @mapper_registry.mapped
 @dataclass
-class RedditPost:
+class Vibes:
 	__table__ = Table(
-		"reddit_posts",
+		"vibes",
 		mapper_registry.metadata,
-		Column("post_id", Integer, primary_key=True),
+		Column("id", Integer, primary_key=True),
 		Column("title", Text),
 		Column("contents", Text),
 		Column("upvotes", Integer),
