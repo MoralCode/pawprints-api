@@ -18,6 +18,8 @@ class RedditPost:
 		Column("title", Text),
 		Column("contents", Text),
 		Column("upvotes", Integer),
+		Column("sentiment", Integer),
+		Column("last_updated", Date())
 	)
 	identifier: int
 	title: str
