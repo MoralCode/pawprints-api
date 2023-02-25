@@ -19,6 +19,7 @@ class Vibes:
 		Column("contents", Text),
 		Column("upvotes", Integer),
 		Column("sentiment", Integer),
+		Column("source_url", String, nullable=False),
 		Column("last_updated", Date())
 	)
 	identifier: int
