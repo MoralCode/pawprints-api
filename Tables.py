@@ -4,6 +4,7 @@ from sqlalchemy import Column
 from sqlalchemy import Integer
 from sqlalchemy import String, Text, Date
 from sqlalchemy import Table
+from sqlalchemy.orm import registry
 
 
 mapper_registry = registry()
