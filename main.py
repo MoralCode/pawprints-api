@@ -9,12 +9,16 @@ class Database():
 		self.engine = create_engine('sqlite:///my_database.db')
 		self.session = sessionmaker(bind=self.engine)()
 
+	def exists(self):
+				
+		return Vibes in mapper_registry.metadata.tables
+
 	def initialize(self):
 		#Add actual functionality from other files here (potentially a driver class)
 		# Check if the table has been created
-		table_exists_before = Vibes in mapper_registry.metadata.tables
+		table_exists_before = self.exists()
 		mapper_registry.metadata.create_all(self.engine)
-		table_exists_after = Vibes in mapper_registry.metadata.tables
+		table_exists_after = self.exists()
 
 		if not table_exists_before and table_exists_after:
 			# new tables created, version stamp the DB
