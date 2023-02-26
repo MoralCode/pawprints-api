@@ -6,7 +6,10 @@ This is intended mainly for WTFRIT internal use only (i.e. if you are editing th
 
 ## Usage
 
+### Creating a migration
+pipenv run alembic revision --autogenerate -m "add total_votes column"
 
+### Running migrations
 
 ## Setup
 
