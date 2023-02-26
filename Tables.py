@@ -5,6 +5,7 @@ from sqlalchemy import Integer
 from sqlalchemy import String, Text, Date
 from sqlalchemy import Table
 from sqlalchemy.orm import registry
+from datetime import datetime
 
 
 mapper_registry = registry()
@@ -26,4 +27,6 @@ class Vibes:
 	title: str
 	contents: str
 	upvotes: int
-	
+	sentiment: int
+	source_url: str
+	last_updated: datetime
