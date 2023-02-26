@@ -12,9 +12,9 @@ class Database():
 	def initialize(self):
 		#Add actual functionality from other files here (potentially a driver class)
 		# Check if the table has been created
-		table_exists_before = Vibes.name in metadata.tables
+		table_exists_before = Vibes in mapper_registry.metadata.tables
 		mapper_registry.metadata.create_all(self.engine)
-		table_exists_after = Vibes.name in metadata.tables
+		table_exists_after = Vibes in mapper_registry.metadata.tables
 
 		if not table_exists_before and table_exists_after:
 			# new tables created, version stamp the DB
@@ -40,3 +40,6 @@ class Database():
 			self.commit()
 
 	
+if __name__ == "__main__":
+	db = Database()
+	db.initialize()
