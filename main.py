@@ -28,4 +28,15 @@ class Database():
 		alembic_cfg = Config("./alembic.ini")
 		command.stamp(alembic_cfg, "head")
 
+	def add(self, object):
+		return self.session.add(object)
+
+	def commit(self):
+		return self.session.commit()
+
+	def reset_values(self):
+		for table in reversed(mapper_registry.metadata.sorted_tables):
+			self.session.execute(table.delete())
+			self.commit()
+
 	
