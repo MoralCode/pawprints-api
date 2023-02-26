@@ -6,8 +6,8 @@ from sqlalchemy import inspect
 class Database():
 	# Create a database engine
 	
-	def __init__(self):
-		self.engine = create_engine('sqlite:///my_database.db')
+	def __init__(self, db_name='sqlite:///my_database.db'):
+		self.engine = create_engine(db_name)
 		self.session = sessionmaker(bind=self.engine)()
 
 	def exists(self):
