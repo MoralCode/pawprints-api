@@ -20,6 +20,7 @@ class Vibes:
 		Column("title", Text),
 		Column("contents", Text, nullable=False),
 		Column("upvotes", Integer),
+		Column("total_votes", Integer),
 		Column("sentiment", Integer),
 		Column("source_url", String, nullable=False),
 		Column("last_updated", Date(), nullable=False)
@@ -27,6 +28,7 @@ class Vibes:
 	title: str
 	contents: str
 	upvotes: int
+	total_votes: int
 	sentiment: int
 	source_url: str
 	last_updated: datetime
