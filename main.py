@@ -1,4 +1,5 @@
 from Tables import Vibes, mapper_registry
+from sqlalchemy import create_engine
 
 class Database():
 	# Create a database engine
