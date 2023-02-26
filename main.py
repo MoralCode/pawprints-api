@@ -1,11 +1,13 @@
 from Tables import Vibes, mapper_registry
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
 class Database():
 	# Create a database engine
 	
 	def __init__(self):
 		self.engine = create_engine('sqlite:///my_database.db')
+		self.session = sessionmaker(bind=engine)()
 
 	def initialize(self):
 		#Add actual functionality from other files here (potentially a driver class)
