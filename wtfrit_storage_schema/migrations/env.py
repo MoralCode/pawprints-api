@@ -24,7 +24,18 @@ target_metadata = mapper_registry.metadata
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
+# from wtfrit_storage_schema import MIGRATIONS_DIR
+# context.config.set_main_option('script_location',MIGRATIONS_DIR )
 # ... etc.
+# print(context.config.get_main_option('script_location'))
+# # get the directory containing the env.py file
+# basedir = os.path.dirname(os.path.abspath(__file__))
+
+# # construct the path to the migrations directory relative to the package
+# migrations_dir = os.path.join(basedir, 'migrations')
+
+# # set the script location to the migrations directory
+# config.set_main_option('script_location', pkg_resources.resource_filename('wtfrit_storage_schema', 'migrations'))
 
 
 def run_migrations_offline() -> None:
