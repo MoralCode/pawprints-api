@@ -32,3 +32,19 @@ class Vibes:
 	sentiment: int
 	source_url: str
 	last_updated: datetime
+
+
+@mapper_registry.mapped
+@dataclass
+class CommentVibes:
+	__table__ = Table(
+		"comment_vibes",
+		mapper_registry.metadata,
+		Column("id", Integer, primary_key=True),
+		Column("parent_id", Integer),
+		Column("contents", Text, nullable=False),
+		Column("sentiment", Integer),
+	)
+	parent_id: int
+	contents: str
+	sentiment: int
