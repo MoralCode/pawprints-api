@@ -1,2 +1,2 @@
-from Tables import Vibes, CommentVibes
+from .Tables import Vibes
 from .main import Database
