@@ -1,6 +1,7 @@
 from Tables import Vibes, mapper_registry
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.engine.reflection import Inspector
 
 class Database():
 	# Create a database engine
@@ -10,8 +11,13 @@ class Database():
 		self.session = sessionmaker(bind=self.engine)()
 
 	def exists(self):
+		inspector = Inspector.from_engine(self.engine)
+		tables_status = [inspector.has_table(table.name) for table in mapper_registry.metadata.tables.values()]
+
+		tables_existing = filter(lambda a : a== True, tables_status)
+		tables_existing = len(list(tables_existing))
 				
-		return Vibes in mapper_registry.metadata.tables
+		return tables_existing == len(tables_status)
 
 	def initialize(self):
 		#Add actual functionality from other files here (potentially a driver class)
