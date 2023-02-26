@@ -3,6 +3,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import inspect
 
+from . import ALEMBIC_CFG_PATH, MIGRATIONS_DIR
+import pkg_resources
 class Database():
 	# Create a database engine
 	
@@ -35,9 +37,9 @@ class Database():
 		# version table, "stamping" it with the most recent rev:
 		from alembic.config import Config
 		from alembic import command
-		from os import path
-		alembic_cfgpath = path.join(path.dirname(__file__), '../alembic.ini')
-		alembic_cfg = Config(alembic_cfgpath)
+		alembic_cfg = Config(ALEMBIC_CFG_PATH)
+		# this must happen here.... because it cant find the migrations dir which is where env.py is
+		alembic_cfg.set_main_option('script_location', MIGRATIONS_DIR)
 		command.stamp(alembic_cfg, "head")
 
 	def add(self, object):
