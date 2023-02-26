@@ -1,4 +1,4 @@
-from Tables import Vibes, mapper_registry
+from Tables import mapper_registry
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import inspect
