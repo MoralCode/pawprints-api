@@ -32,5 +32,5 @@ class Vibes:
 	total_votes: int
 	sentiment: int
 	source_url: str
-	related = relationship('vibes', remote_side=[__table__.c.id])
+	related = relationship('Vibes', remote_side=[__table__.c.id])
 	last_updated: datetime
