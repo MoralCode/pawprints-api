@@ -25,3 +25,9 @@ class PawPrints:
 		
         return await self.send_request(request).get("petition")
 
+	async def listen(self):
+        async for message in self.websocket:
+            response = json.loads(message)
+            # Handle the response as needed, such as for caching
+			# maybe turn it into an object
+			yield response
