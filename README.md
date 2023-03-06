@@ -16,7 +16,7 @@ await pawprints.connect()
 try:
 	async for data in pawprints.listen():
 		# Handle the message as needed
-		# print(data)
+		print(data)
 except Exception:
 	print('Stopping...')
 	await api.disconnect()
