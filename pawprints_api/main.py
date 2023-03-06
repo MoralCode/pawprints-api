@@ -23,8 +23,10 @@ class PawPrints:
 
 	async def get_petition(self, petition_id):
 		request = {'command': 'get', 'id': petition_id}
+
+		response = await self.send_request(request)
 		
-		return await self.send_request(request).get("petition")
+		return response.get("petition")
 
 	async def listen(self):
 		async for message in self.websocket:
