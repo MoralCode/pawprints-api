@@ -20,22 +20,8 @@ class PawPrints:
         response = await self.websocket.recv()
         return json.loads(response)
 
-    async def get_ticker(self, symbol):
-        request = {
-            'method': 'ticker',
-            'params': {
-                'symbol': symbol
-            }
-        }
-        return await self.send_request(request)
-
-    async def get_order_book(self, symbol, limit):
-        request = {
-            'method': 'orderbook',
-            'params': {
-                'symbol': symbol,
-                'limit': limit
-            }
-        }
-        return await self.send_request(request)
+    async def get_petition(self, petition_id):
+        request = {'command': 'get', 'id': petition_id}
+		
+        return await self.send_request(request).get("petition")
 
