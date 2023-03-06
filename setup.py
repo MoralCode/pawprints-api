@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 setup(
-    name="wtfrit_storage_schema",
-    version="0.1.2",
+    name="pawprints_api",
+    version="0.1.0",
     packages=find_packages(),
     package_dir={'': '.'},
-    package_data={'wtfrit_storage_schema': ['migrations/**/*']},
+    package_data={'pawprints_api': '*'},
     include_package_data=True,
-    install_requires=['alembic', 'sqlalchemy'],
+    install_requires=['websockets'],
 )
